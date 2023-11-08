@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { InfiniteZoomFader } from "infinite-zoom-fader";
+import { images } from "./images";
+import Menu from "./components/menu/Menu";
+import Setting from "./components/setting/Setting";
 
 function App() {
+  const [zoom, setZoom] = useState("out");
+  const [zoomScale, setZoomScale] = useState(0.75);
+  const [zoomTime, setZoomTime] = useState(10);
+  const [zoomMax, setZoomMax] = useState(0.25);
+  const [transitionTime, setTransitionTime] = useState(1);
+
+  const zoomConfig = {
+    zoom,
+    zoomScale,
+    zoomTime,
+    zoomMax,
+    transitionTime,
+  };
+
+  const updateConfig = (val) => {
+    setting === "zoom" && setZoom(val);
+    setting === "zoomScale" && setZoomScale(Number(val));
+    setting === "zoomTime" && setZoomTime(Number(val));
+    setting === "zoomMax" && setZoomMax(Number(val));
+    setting === "transitionTime" && setTransitionTime(Number(val));
+  };
+
+  const [setting, setSetting] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <InfiniteZoomFader images={images} zoomConfig={zoomConfig}>
+      <Menu onSetSetting={(setting) => setSetting(setting)} />
+      {setting && (
+        <Setting
+          setting={setting}
+          zoomConfig={zoomConfig}
+          onSettingChange={(val) => updateConfig(val)}
+        />
+      )}
+    </InfiniteZoomFader>
   );
 }
 
