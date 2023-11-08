@@ -21,13 +21,17 @@ function Menu({ onSetSetting }) {
           <div className="settings-selector__toggle">
             {showSettings ? (
               <IoCloseOutline
+                tabIndex="0"
                 onClick={() => {
                   setShowSettings((show) => !show);
                   onSetSetting("");
                 }}
               />
             ) : (
-              <IoMenuOutline onClick={() => setShowSettings((show) => !show)} />
+              <IoMenuOutline
+                tabIndex="0"
+                onClick={() => setShowSettings((show) => !show)}
+              />
             )}
           </div>
 
