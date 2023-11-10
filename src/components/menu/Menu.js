@@ -17,7 +17,7 @@ function Menu({ onSetSetting }) {
           </a>
         </h1>
 
-        <div class={`settings-selector ${showSettings ? "active" : ""}`}>
+        <div className={`settings-selector ${showSettings ? "active" : ""}`}>
           <div className="settings-selector__toggle">
             {showSettings ? (
               <IoCloseOutline
@@ -59,6 +59,12 @@ function Menu({ onSetSetting }) {
               onClick={() => onSetSetting("zoomTime")}
             >
               Zoom Time
+            </span>
+            <span
+              className="settings-item"
+              onClick={() => onSetSetting("zoomTimingFunction")}
+            >
+              Zoom Timing Function
             </span>
             <span
               className="settings-item"

@@ -6,9 +6,11 @@ import Menu from "./components/menu/Menu";
 import Setting from "./components/setting/Setting";
 
 function App() {
+  const [setting, setSetting] = useState("");
   const [zoom, setZoom] = useState("out");
   const [zoomScale, setZoomScale] = useState(0.75);
   const [zoomTime, setZoomTime] = useState(10);
+  const [zoomTimingFunction, setZoomTimingFunction] = useState("linear");
   const [zoomMax, setZoomMax] = useState(0.25);
   const [transitionTime, setTransitionTime] = useState(1);
 
@@ -16,6 +18,7 @@ function App() {
     zoom,
     zoomScale,
     zoomTime,
+    zoomTimingFunction,
     zoomMax,
     transitionTime,
   };
@@ -25,10 +28,9 @@ function App() {
     setting === "zoomScale" && setZoomScale(Number(val));
     setting === "zoomTime" && setZoomTime(Number(val));
     setting === "zoomMax" && setZoomMax(Number(val));
+    setting === "zoomTimingFunction" && setZoomTimingFunction(val);
     setting === "transitionTime" && setTransitionTime(Number(val));
   };
-
-  const [setting, setSetting] = useState("");
 
   return (
     <InfiniteZoomFader images={images} zoomConfig={zoomConfig}>

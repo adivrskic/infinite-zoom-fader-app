@@ -5,29 +5,39 @@ const Setting = ({ setting, zoomConfig, onSettingChange }) => {
   const settingMap = {
     zoom: {
       title: "Zoom",
-      desc: '"in" or "out" - determines the image zoom direction',
+      type: '"in" or "out"',
+      desc: "Determines the image zoom direction",
     },
     zoomMax: {
       title: "Zoom Max (%)",
-      desc: "number between 0 and 1 - determines the maximum zoom percentage of the images between 0 and 100 ",
+      type: "Number Between 0 and 1",
+      desc: "Determines the maximum zoom percentage of the images between 0 and 100 ",
     },
     zoomScale: {
       title: "Zoom Scale (%)",
-      desc: "number between 0 and 1 - determines how much the images scale up or down in size",
+      type: "Number Between 0 and 1",
+      desc: "Determines how much the images scale up or down in size",
     },
     zoomTime: {
       title: "Zoom Time (s)",
-      desc: "number - the length of time each image remains on screen before transitioning",
+      type: "Number",
+      desc: "The length of time each image remains on screen before transitioning",
+    },
+    zoomTimingFunction: {
+      title: "Zoom Timing Function",
+      type: "Timing Function or Cubic Bezier Function",
+      desc: "The animation timing function",
     },
     transitionTime: {
       title: "Transition Time (s)",
-      desc: "number - the length of time for transitions between images",
+      type: "Number",
+      desc: "The transition time between images",
     },
   };
 
   return (
-    <div className="setting">
-      {setting === "zoom" ? (
+    <div className={`setting ${setting}`}>
+      {setting === "zoom" || setting === "zoomTimingFunction" ? (
         <input
           type="text"
           onChange={(e) => onSettingChange(e.target.value)}
@@ -37,12 +47,13 @@ const Setting = ({ setting, zoomConfig, onSettingChange }) => {
         <input
           type="number"
           pattern="[0-9]*"
-          inputmode="numeric"
+          inputMode="numeric"
           value={zoomConfig[setting]}
           onChange={(e) => onSettingChange(e.target.value)}
         />
       )}
       <h2>{settingMap[setting].title}</h2>
+      <p>{settingMap[setting].type}</p>
       <p>{settingMap[setting].desc}</p>
     </div>
   );
