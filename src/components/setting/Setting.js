@@ -47,6 +47,7 @@ const Setting = ({ setting, zoomConfig, onSettingChange }) => {
         <input
           type="number"
           pattern="[0-9]*"
+          step="0.01"
           inputMode="numeric"
           value={zoomConfig[setting]}
           onChange={(e) => onSettingChange(e.target.value)}

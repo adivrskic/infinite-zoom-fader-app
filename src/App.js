@@ -33,7 +33,15 @@ function App() {
   };
 
   return (
-    <InfiniteZoomFader images={images} zoomConfig={zoomConfig}>
+    <InfiniteZoomFader
+      images={images}
+      zoom={zoom}
+      zoomScale={zoomScale}
+      zoomTime={zoomTime}
+      zoomTimingFunction={zoomTimingFunction}
+      zoomMax={zoomMax}
+      transitionTime={transitionTime}
+    >
       <Menu onSetSetting={(setting) => setSetting(setting)} />
       {setting && (
         <Setting
