@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
+import { IoTimeOutline } from "react-icons/io5";
+import { PiSwapBold } from "react-icons/pi";
+import {
+  TbFunction,
+  TbScale,
+  TbZoomScan,
+  TbTransitionRight,
+} from "react-icons/tb";
+import { TiArrowMaximise } from "react-icons/ti";
+import { PiTimerBold } from "react-icons/pi";
+import { MdOutlineSwapHoriz } from "react-icons/md";
 
 function Menu({ onSetSetting }) {
   const [showSettings, setShowSettings] = useState(false);
@@ -18,59 +28,42 @@ function Menu({ onSetSetting }) {
         </h1>
 
         <div className={`settings-selector ${showSettings ? "active" : ""}`}>
-          <div className="settings-selector__toggle">
-            {showSettings ? (
-              <IoCloseOutline
-                tabIndex="0"
-                onClick={() => {
-                  setShowSettings((show) => !show);
-                  onSetSetting("");
-                }}
-              />
-            ) : (
-              <IoMenuOutline
-                tabIndex="0"
-                onClick={() => setShowSettings((show) => !show)}
-              />
-            )}
-          </div>
-
           <menu className="settings">
             <span
               className="settings-item"
               onClick={() => onSetSetting("zoom")}
             >
-              Zoom
+              <TbZoomScan />
             </span>
             <span
               className="settings-item"
               onClick={() => onSetSetting("zoomMax")}
             >
-              Zoom Max
+              <TiArrowMaximise />
             </span>
             <span
               className="settings-item"
               onClick={() => onSetSetting("zoomScale")}
             >
-              Zoom Scale
+              <TbScale />
             </span>
             <span
               className="settings-item"
               onClick={() => onSetSetting("zoomTime")}
             >
-              Zoom Time
+              <PiTimerBold />
             </span>
             <span
               className="settings-item"
               onClick={() => onSetSetting("zoomTimingFunction")}
             >
-              Zoom Timing Function
+              <TbFunction />
             </span>
             <span
               className="settings-item"
               onClick={() => onSetSetting("transitionTime")}
             >
-              Transition Time
+              <TbTransitionRight />
             </span>
           </menu>
         </div>
