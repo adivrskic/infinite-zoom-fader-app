@@ -6,7 +6,7 @@ import Menu from "./components/menu/Menu";
 import Setting from "./components/setting/Setting";
 
 function App() {
-  const [setting, setSetting] = useState("");
+  const [setting, setSetting] = useState("zoom");
   const [zoom, setZoom] = useState("out");
   const [zoomScale, setZoomScale] = useState(0.75);
   const [zoomTime, setZoomTime] = useState(10);
@@ -42,7 +42,7 @@ function App() {
       zoomMax={zoomMax}
       transitionTime={transitionTime}
     >
-      <Menu onSetSetting={(setting) => setSetting(setting)} />
+      <Menu setting={setting} onSetSetting={(setting) => setSetting(setting)} />
       {setting && (
         <Setting
           setting={setting}

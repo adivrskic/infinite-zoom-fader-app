@@ -81,16 +81,43 @@ header {
 
 .settings {
   display: flex;
-  /* flex-direction: column; */
   gap: 2rem;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .settings-item {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.settings-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.settings-item:after {
+  content: "";
+  position: absolute;
+  top: calc(36px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 2px;
+  width: 0px;
+  border-radius: 999px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.settings-item.active:after {
+  width: 16px;
 }
 
 .settings-selector.active .settings-item {
@@ -98,11 +125,26 @@ header {
   transform: translateX(0);
 }
 
+.setting-submit {
+  padding: 1rem 2rem;
+  font-size: 18px;
+  background: none;
+  border: 2px solid #fff;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
 svg {
   width: 28px;
   height: 28px;
   cursor: pointer;
   outline: none;
+}
+
+svg.small {
+  width: 24px;
+  height: 24px;
 }
 
 @keyframes slideDown {
@@ -115,7 +157,7 @@ svg {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   h1 {
     font-size: 18px;
   }
@@ -127,5 +169,14 @@ svg {
 
   p {
     font-size: 14px;
+  }
+
+  header {
+    align-items: flex-start;
+  }
+
+  .settings {
+    flex-direction: column-reverse;
+    margin-top: -5px;
   }
 }
