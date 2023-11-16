@@ -6,7 +6,7 @@ import Menu from "./components/menu/Menu";
 import Setting from "./components/setting/Setting";
 
 function App() {
-  const [setting, setSetting] = useState("zoom");
+  const [setting, setSetting] = useState("");
   const [zoom, setZoom] = useState("out");
   const [zoomScale, setZoomScale] = useState(0.75);
   const [zoomTime, setZoomTime] = useState(10);
