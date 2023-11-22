@@ -5,20 +5,10 @@
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(5px);
   padding-bottom: 2rem;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-}
-
-.setting-form {
-  width: 400px;
-  max-width: 90%;
-  display: flex;
-  flex-direction: column;
 }
 
 .zoom,
@@ -30,18 +20,36 @@
   animation: slideIn 0.25s ease-in-out forwards;
 }
 
+.container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.container.close {
+  opacity: 0;
+  transform: translateY(5px);
+}
+
 input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: none;
   border: none;
   outline: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: none;
   margin-bottom: 2rem;
   text-align: center;
   font-size: 124px;
-}
-
-input::placeholder {
-  color: #fff;
 }
 
 h2 {
@@ -78,9 +86,8 @@ input[type="number"] {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 680px) {
   input {
     font-size: 72px;
-    border-bottom: 3px solid #fff;
   }
 }

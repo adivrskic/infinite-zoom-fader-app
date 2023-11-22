@@ -50,114 +50,7 @@ a {
   letter-spacing: 3px;
 }
 
-.menu {
-  z-index: 100;
-  transform: translateY(-100px);
-  opacity: 0;
-  position: relative;
-  animation: slideDown 1.25s ease-out forwards;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  padding: 0 2rem;
-}
-
-.settings-selector {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.settings-selector__toggle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.settings {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.settings-item {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.settings-close {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #fff;
-  border-radius: 50%;
-}
-
-.settings-item:after {
-  content: "";
-  position: absolute;
-  top: calc(36px);
-  left: 50%;
-  transform: translate(-50%, 0);
-  height: 2px;
-  width: 0px;
-  border-radius: 999px;
-  background-color: #fff;
-  transition: all 0.2s ease-in-out;
-}
-
-.settings-item.active:after {
-  width: 16px;
-}
-
-.settings-selector.active .settings-item {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.setting-submit {
-  padding: 1rem 2rem;
-  font-size: 18px;
-  background: none;
-  border: 2px solid #fff;
-  margin-bottom: 2rem;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-svg {
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-  outline: none;
-}
-
-svg.small {
-  width: 24px;
-  height: 24px;
-}
-
-@keyframes slideDown {
-  67% {
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(2rem);
-    opacity: 1;
-  }
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 680px) {
   h1 {
     font-size: 18px;
   }
@@ -178,5 +71,15 @@ svg.small {
   .settings {
     flex-direction: column-reverse;
     margin-top: -5px;
+  }
+}
+
+@keyframes slideDown {
+  67% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(2rem);
+    opacity: 1;
   }
 }

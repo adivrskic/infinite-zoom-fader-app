@@ -1,0 +1,81 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 0 2rem;
+  z-index: 100;
+  transform: translateY(-100px);
+  opacity: 0;
+  position: relative;
+  animation: slideDown 1.25s ease-out forwards;
+}
+
+menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+menu span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+menu span:after {
+  content: "";
+  position: absolute;
+  top: calc(36px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 2px;
+  width: 0px;
+  border-radius: 999px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+menu span.active:after {
+  width: 16px;
+}
+
+.menu-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+svg {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  outline: none;
+}
+
+svg.small {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (max-width: 680px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  menu {
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: 100%;
+    gap: 0;
+  }
+}

@@ -36,8 +36,8 @@ const Setting = ({ setting, zoomConfig, onSettingChange }) => {
   };
 
   return (
-    <div className={`setting ${setting}`}>
-      <div className="setting-form">
+    <div className="container">
+      <div className={`setting ${setting}`}>
         {setting === "zoom" || setting === "zoomTimingFunction" ? (
           <input
             type="text"
@@ -49,16 +49,15 @@ const Setting = ({ setting, zoomConfig, onSettingChange }) => {
             type="number"
             pattern="[0-9]*"
             step="0.01"
-            inputMode="numeric"
             value={zoomConfig[setting]}
             onChange={(e) => onSettingChange(e.target.value)}
           />
         )}
-      </div>
 
-      <h2>{settingMap[setting].title}</h2>
-      <p>{settingMap[setting].type}</p>
-      <p>{settingMap[setting].desc}</p>
+        <h2>{settingMap[setting].title}</h2>
+        <p>{settingMap[setting].type}</p>
+        <p>{settingMap[setting].desc}</p>
+      </div>
     </div>
   );
 };

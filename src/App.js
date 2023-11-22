@@ -32,6 +32,16 @@ function App() {
     setting === "transitionTime" && setTransitionTime(Number(val));
   };
 
+  const updateSetting = (setting) => {
+    if (setting === "") {
+      document.querySelector(".container")?.classList.add("close");
+      setTimeout(() => {
+        setSetting(setting);
+      }, 250);
+    } else {
+      setSetting(setting);
+    }
+  };
   return (
     <InfiniteZoomFader
       images={images}
@@ -42,7 +52,10 @@ function App() {
       zoomMax={zoomMax}
       transitionTime={transitionTime}
     >
-      <Menu setting={setting} onSetSetting={(setting) => setSetting(setting)} />
+      <Menu
+        setting={setting}
+        onSetSetting={(setting) => updateSetting(setting)}
+      />
       {setting && (
         <Setting
           setting={setting}

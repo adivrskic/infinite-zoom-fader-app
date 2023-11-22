@@ -12,7 +12,7 @@ import "./menu.css";
 
 function Menu({ setting, onSetSetting }) {
   return (
-    <header className="menu">
+    <header>
       <h1>
         <a
           href="https://www.npmjs.com/package/infinite-zoom-fader"
@@ -23,48 +23,44 @@ function Menu({ setting, onSetSetting }) {
         </a>
       </h1>
 
-      <menu className="settings">
+      <menu>
         <span
-          className={`settings-item ${setting === "zoom" && "active"}`}
+          className={`${setting === "zoom" && "active"}`}
           onClick={() => onSetSetting("zoom")}
         >
           <TbZoomScan />
         </span>
         <span
-          className={`settings-item ${setting === "zoomMax" && "active"}`}
+          className={`${setting === "zoomMax" && "active"}`}
           onClick={() => onSetSetting("zoomMax")}
         >
           <TiArrowMaximise />
         </span>
         <span
-          className={`settings-item ${setting === "zoomScale" && "active"}`}
+          className={`${setting === "zoomScale" && "active"}`}
           onClick={() => onSetSetting("zoomScale")}
         >
           <TbScale />
         </span>
         <span
-          className={`settings-item ${setting === "zoomTime" && "active"}`}
+          className={`${setting === "zoomTime" && "active"}`}
           onClick={() => onSetSetting("zoomTime")}
         >
           <PiTimerBold />
         </span>
         <span
-          className={`settings-item ${
-            setting === "zoomTimingFunction" && "active"
-          }`}
+          className={`${setting === "zoomTimingFunction" && "active"}`}
           onClick={() => onSetSetting("zoomTimingFunction")}
         >
           <TbFunction />
         </span>
         <span
-          className={`settings-item ${
-            setting === "transitionTime" && "active"
-          }`}
+          className={`${setting === "transitionTime" && "active"}`}
           onClick={() => onSetSetting("transitionTime")}
         >
           <TbTransitionRight className="small" />
         </span>
-        <span className={`settings-close`} onClick={() => onSetSetting("")}>
+        <span className={`menu-close`} onClick={() => onSetSetting("")}>
           <IoClose />
         </span>
       </menu>
